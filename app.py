@@ -19,10 +19,6 @@ def index():
 
     return render_template("index.html",name=name,movies=movies) # 变量通过render_template返回
 
-
-
-
-
 # @app.route('/usr/<name>')
 # def usr_page(name):
 #     return 'usr: %s' % name

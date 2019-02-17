@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+{#   添加Avatar alt 属性是一个必需的属性，它规定在图像无法显示时的替代文本。#}
     <title>{{name}}'s Watchlist</title>
+{#    添加favicon#}
     <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+{#    引入CSS#}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" type="text/css">
 </head>
 <body>
     <h2>
+        <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.jpeg') }}">
         {{name}}'s Watchlist
     </h2>
 {# 使用 length 过滤器获取 movies 变量的长度 #}
     <p>{{ movies|length }} Titles</p>
 
-    <ul>
+    <ul class="movie-list">
         {% for movie in movies %}
         <li>{{ movie.title }} - {{ movie.year }}</li>  {# 等同于 movie['title'] #}
         {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
     </ul>
+    <img alt="Jump Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}">
     <footer>
         <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
     </footer>
